@@ -1,14 +1,10 @@
-\
 <template>
   <div
     class="mx-3 flex w-[328px] flex-col items-center rounded-lg border bg-white p-[30px] shadow-lg md:w-[98%] md:max-w-[912px] md:flex-row md:justify-between lg:max-w-[1286px]"
   >
-    <!-- CONTENT BLOCK -->
-
     <div
       class="w-full md:flex md:max-w-[581px] md:flex-col lg:min-w-[787px] lg:flex-row xl:min-w-[797px]"
     >
-      <!-- Header Block -->
       <div class="mb-5 flex w-full md:items-center lg:mb-0 lg:max-w-[388px]">
         <img
           src="../assets/images/google.svg"
@@ -23,17 +19,16 @@
         </h1>
       </div>
 
-      <!-- Main block -->
       <div
         class="mb-5 flex w-full flex-col items-start justify-center md:mb-0 md:flex-row md:items-center md:justify-start lg:justify-center"
       >
         <div class="mb-[6px] mr-2 flex space-x-1">
           <span class="mr-5 text-2xl font-medium text-gray-800">{{
-            rating
+            reviewsData.rating
           }}</span>
 
           <star-rating
-            v-model:rating="rating"
+            v-model:rating="reviewsData.rating"
             :read-only="true"
             :star-size="30"
             :max-rating="5"
@@ -43,13 +38,12 @@
           ></star-rating>
         </div>
 
-        <span class="font-formular text-sm font-normal text-gray-600 md:ml-5"
-          >233 відгуки</span
-        >
+        <span class="font-formular text-sm font-normal text-gray-600 md:ml-5">{{
+          reviewsData.reviewsCount
+        }}</span>
       </div>
     </div>
 
-    <!-- Buttons block -->
     <div
       class="flex w-full flex-col space-y-3 md:max-w-[251px] md:flex-row md:items-center md:justify-center md:space-y-0"
     >
@@ -72,12 +66,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import StarRating from "vue-star-rating";
 import { toast } from "vue3-toastify";
+import { onMounted, ref } from "vue";
+import { getReviews } from "../api/mainRequests";
+import StarRating from "vue-star-rating";
 import "vue3-toastify/dist/index.css";
 
-const rating = ref(4.5);
+const reviewsData = ref<any>([]);
+
+onMounted(async () => {
+  try {
+    const response = await getReviews();
+    reviewsData.value = response[0] || {};
+  } catch (error) {
+    console.error("Помилка при отриманні відгуків:", error);
+  }
+});
 
 const notify = () => {
   toast("Hello world !", {
