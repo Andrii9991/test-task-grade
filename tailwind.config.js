@@ -4,11 +4,13 @@ export default {
   theme: {
     extend: {
       screens: {
-        sm: { min: "360px", max: "576px" },
-        md: { min: "577px", max: "1199px" },
-        lg: { min: "1200px", max: "1366px" },
-        xl: { min: "1367px", max: "1920px" },
-        "2xl": { min: "1921px" },
+        sm: { min: "360px" },
+        md: { min: "577px" },
+        lg: { min: "1200px" },
+        xl: { min: "1367px" },
+      },
+      fontFamily: {
+        formular: ["Formular", "sans-serif"], // Назва шрифту повинна співпадати з тим, що вказано в index.html
       },
     },
   },
