@@ -1,11 +1,19 @@
-<template></template>
+<template>
+  <div class="flex flex-col items-center justify-center h-[100vh]">
+    <TheReview />
+  </div>
+</template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
+import TheReview from "./components/TheReview.vue";
+import { onMounted, ref } from "vue";
 import { getReviews } from "./api/mainRequests";
 
+let reviewsData = ref<any>([]);
+
 onMounted(async () => {
-  await getReviews();
+  const response = await getReviews();
+  reviewsData.value = response[0];
 });
 </script>
 
