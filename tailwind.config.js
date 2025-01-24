@@ -10,7 +10,7 @@ export default {
         xl: { min: "1367px" },
       },
       fontFamily: {
-        formular: ["Formular", "sans-serif"], // Назва шрифту повинна співпадати з тим, що вказано в index.html
+        formular: ["Formular", "sans-serif"],
       },
     },
   },
