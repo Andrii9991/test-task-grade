@@ -11,8 +11,9 @@
           alt="Google logo"
           class="my-[6px] h-10 w-10 object-contain"
         />
+
         <h1
-          class="font-formular ml-5 text-lg font-medium leading-[26px] md:w-full lg:text-xl"
+          class="ml-5 font-formular text-lg font-medium leading-[26px] md:w-full lg:text-xl"
         >
           Відгуки наших <br class="md:hidden" />
           клієнтів у Google
@@ -50,14 +51,14 @@
       <div class="custom-gradient-border">
         <a
           href="https://www.google.com.ua/?hl=uk"
-          class="font-formular flex w-full justify-center rounded-[8px] border bg-gradient-to-r from-[#E6F7F5] to-[#F8FCFC] py-2 text-[14px] font-medium leading-[22px] text-gray-800 hover:from-[#3d8b86] hover:to-[#50c7bf] hover:text-white md:px-5 md:py-[10px]"
+          class="flex w-full justify-center rounded-[8px] border bg-gradient-to-r from-[#E6F7F5] to-[#F8FCFC] py-2 font-formular text-[14px] font-medium leading-[22px] text-gray-800 hover:from-[#3d8b86] hover:to-[#50c7bf] hover:text-white md:px-5 md:py-[10px]"
         >
           Переглянути
         </a>
       </div>
       <button
         @click="notify"
-        class="font-formular rounded-[8px] bg-gradient-to-r from-[#3CB9A0] to-[#1786AC] py-2 text-[14px] font-medium leading-[22px] text-white hover:opacity-90 md:ml-[10px] md:px-5 md:py-[10px]"
+        class="rounded-[8px] bg-gradient-to-r from-[#3CB9A0] to-[#1786AC] py-2 font-formular text-[14px] font-medium leading-[22px] text-white hover:opacity-90 md:ml-[10px] md:px-5 md:py-[10px]"
       >
         Написати
       </button>
